@@ -26,3 +26,13 @@ class ParseTest(TestCase):
   	add_function = parse.parse('-7')
   	
   	self.assertEquals(-7, add_function(0))
+
+  def test_returns_a_function_that_multiplies_a_number(self):
+  	add_function = parse.parse('*2')
+  	
+  	self.assertEquals(8, add_function(4))
+
+  def test_returns_a_function_that_divids_a_number(self):
+  	add_function = parse.parse('/4')
+  	
+  	self.assertEquals(-3, add_function(-12))

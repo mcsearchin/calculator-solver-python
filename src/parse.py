@@ -1,16 +1,17 @@
 import re
 
 def parse(function_string):
-  arithmetic = re.compile('^[+-][0-9]+$')
+  arithmetic = re.compile('^[+\-*/][0-9]+$')
   if (arithmetic.match(function_string)):
-    term = int(function_string[1:])
-    if (function_string.startswith('+')):
-      def add(value):
-        return value + term
-      return add
-    else:
-      def subtract(value):
-        return value - term
-      return subtract
+    operator = function_string[0:1]
+    second_term = int(function_string[1:])
+
+    return {
+      '+': lambda value: value + second_term,
+      '-': lambda value: value - second_term,
+      '*': lambda value: value * second_term,
+      '/': lambda value: value / second_term,
+    }[operator]
 
   raise ValueError('Illegal function : %s' % function_string)
+
