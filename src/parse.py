@@ -1,10 +1,10 @@
 import re
 
-def parse(function_string):
+def parse(operation_string):
   arithmetic = re.compile('^[+\-*/][0-9]+$')
-  if (arithmetic.match(function_string)):
-    operator = function_string[0:1]
-    second_term = int(function_string[1:])
+  if (arithmetic.match(operation_string)):
+    operator = operation_string[0:1]
+    second_term = int(operation_string[1:])
 
     return {
       '+': lambda value: value + second_term,
@@ -13,5 +13,5 @@ def parse(function_string):
       '/': lambda value: value / second_term,
     }[operator]
 
-  raise ValueError('Illegal function : %s' % function_string)
+  raise ValueError('Illegal operation : %s' % operation_string)
 
