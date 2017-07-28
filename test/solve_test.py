@@ -29,17 +29,22 @@ class SolveTest(TestCase):
 
     self.assertEquals(['*3'], steps)
 
-  def test_finds_steps_to_solve_a_two_step_operation_problem_when_order_does_not_matter(self):
+  def test_finds_steps_to_solve_a_two_step_problem_when_order_does_not_matter(self):
     steps = self.subject.find_steps_to_solve(1, 12, 2, ['*3', '*4'])
 
     self.assertEquals(['*3', '*4'], steps)
 
-  def test_finds_steps_to_solve_a_two_step_operation_problem_when_order_does_matter(self):
+  def test_finds_steps_to_solve_a_two_step_problem_when_order_does_matter(self):
     steps = self.subject.find_steps_to_solve(0, 3, 2, ['*3', '+1'])
 
     self.assertEquals(['+1', '*3'], steps)
 
-  def test_finds_steps_to_solve_a_three_step_operation_problem_when_order_does_matter(self):
+  def test_finds_steps_to_solve_a_three_step_problem_when_order_does_matter(self):
     steps = self.subject.find_steps_to_solve(0, 7, 3, ['*3', '+1', '+4'])
 
     self.assertEquals(['+1', '*3', '+4'], steps)
+
+  def test_finds_steps_to_solve_a_multi_operation_problem_with_more_steps_than_operations(self):
+    steps = self.subject.find_steps_to_solve(4, 48, 4, ['/3', '+3', '*3'])
+
+    self.assertEquals(['*3', '+3', '*3', '+3'], steps)

@@ -18,6 +18,7 @@ def _attempt_to_solve(current_value, desired_value, number_remaining_steps, step
     operation = parse.parse_operation(operation_string)
     new_value = operation(current_value)
     steps = steps_so_far + [operation_string]
+
     if new_value == desired_value:
       return steps
     else:
