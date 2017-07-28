@@ -32,7 +32,7 @@ class SolveTest(TestCase):
   def test_finds_steps_to_solve_a_two_step_problem_when_order_does_not_matter(self):
     steps = self.subject.find_steps_to_solve(1, 12, 2, ['*3', '*4'])
 
-    self.assertEquals(['*3', '*4'], steps)
+    self.assertTrue(['*3', '*4'] == steps or ['*4', '*3'] == steps)
 
   def test_finds_steps_to_solve_a_two_step_problem_when_order_does_matter(self):
     steps = self.subject.find_steps_to_solve(0, 3, 2, ['*3', '+1'])
