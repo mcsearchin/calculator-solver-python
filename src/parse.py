@@ -1,6 +1,6 @@
 import re
 
-def parse(operation_string):
+def parse_operation(operation_string):
   arithmetic = re.compile('^[+\-*/][0-9]+$')
   if (arithmetic.match(operation_string)):
     operator = operation_string[0:1]
