@@ -18,9 +18,14 @@ class ParseTest(TestCase):
   	self.assertEquals(1, resulting_function(0))
 
   def test_parses_a_function_that_adds_a_two_digit_number(self):
-  	resulting_function = self.subject.parse_operation('+23')
-  	
-  	self.assertEquals(25, resulting_function(2))
+    resulting_function = self.subject.parse_operation('+23')
+    
+    self.assertEquals(25, resulting_function(2))
+
+  def test_parses_a_function_that_adds_a_negative_number(self):
+    resulting_function = self.subject.parse_operation('+-3')
+    
+    self.assertEquals(-1, resulting_function(2))
 
   def test_parses_a_function_that_subtracts_a_number(self):
   	resulting_function = self.subject.parse_operation('-7')

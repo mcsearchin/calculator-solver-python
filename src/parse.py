@@ -10,7 +10,7 @@ def parse_operation(operation_string):
   raise ValueError('Illegal operation : %s' % operation_string)
 
 def _is_arithmetic_operator(operation_string):
-  return re.compile('^[+\-*/][0-9]+$').match(operation_string)
+  return re.compile('^[+\-*/][\-]?[0-9]+$').match(operation_string)
 
 def _generate_arithmetic_function(operation_string):
   operator = operation_string[0:1]
