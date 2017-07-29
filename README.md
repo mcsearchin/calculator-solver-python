@@ -6,7 +6,7 @@ To set up you will need python, pip, and virtualenv:
 ```
 python -m virtualenv  venv
 source venv/bin/activate
-pip install -r pip_requirements.txt
+pip install -r pip.txt
 ```
 
 To run tests:
