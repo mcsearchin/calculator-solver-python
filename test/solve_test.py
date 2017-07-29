@@ -48,3 +48,6 @@ class SolveTest(TestCase):
     steps = self.subject.find_steps_to_solve(4, 48, 4, ['/3', '+3', '*3'])
 
     self.assertEquals(['*3', '+3', '*3', '+3'], steps)
+
+  def test_raises_an_error_when_the_only_solution_comes_from_a_rounding_error(self):
+    self.assertRaises(ValueError, self.subject.find_steps_to_solve, 34, 3, 3, ['-5', '/7'])

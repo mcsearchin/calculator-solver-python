@@ -2,6 +2,7 @@ import parse
 
 def find_steps_to_solve(initial_value, desired_value, number_of_steps, allowed_operation_strings):
   operations_dictionary = _parse_operations(allowed_operation_strings)
+  
   solution = _attempt_to_solve(initial_value, desired_value, number_of_steps, [], operations_dictionary)
   if solution:
     return solution

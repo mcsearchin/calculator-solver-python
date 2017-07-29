@@ -9,7 +9,7 @@ def parse_operation(operation_string):
   if '<<' == operation_string:
     return lambda value: int(value) / 10
   if '+/-' == operation_string:
-    return lambda value: int(value) * -1
+    return lambda value: value * -1
 
   raise ValueError('Illegal operation : %s' % operation_string)
 
