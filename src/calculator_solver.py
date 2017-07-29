@@ -59,15 +59,16 @@ def _split_operations_string(operations_string):
   return [operation_string.strip() for operation_string in operation_strings]
 
 def _get_usage_string():
-  return '\n\nExample usage:' \
-    '\npython src/calculator_solver.py -i 0 -d -4 -n 2 -o \'-5, +1\'' \
-    '\n-i, --initial-value=       Self-explanatory' \
-    '\n-d, --desired-value=       The desired calculated final value' \
-    '\n-n, --number-of-steps=     The maximum number of operations that can be applied to get to the desire value.' \
-    '\n-o, --allowed-operations=  The set of allowed operations.' \
-    '\nAllowed operation values are +x, -x, *x, /x, ' \
-    '\n<< (will truncate the last decimal place, i.e. 12 becomes 1), ' \
-    '\nand x (will append to the existing numeric value, i.e. applying \'2\' to \'1\' results in \'12\')\n'
+  return "\n\nExample usage:" \
+    "\npython src/calculator_solver.py -i 0 -d -4 -n 2 -o '-5, +1'" \
+    "\n-i, --initial-value=       Self-explanatory" \
+    "\n-d, --desired-value=       The desired calculated final value" \
+    "\n-n, --number-of-steps=     The maximum number of operations that can be applied to get to the desire value." \
+    "\n-o, --allowed-operations=  The set of allowed operations." \
+    "\nAllowed operation values are '+x', '-x', '*x', '/x', " \
+    "\n'<<' (will truncate the last decimal place, i.e. '12' becomes '1'), " \
+    "\n'+/-' (will flip the sign: positive to negative or negative to positive), " \
+    "\nand simply 'x' (will append to the existing numeric value, i.e. applying '2' to '1' results in '12')\n"
 
 
 if __name__ == "__main__":

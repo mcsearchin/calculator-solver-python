@@ -51,3 +51,9 @@ class ParseTest(TestCase):
     resulting_function = self.subject.parse_operation('<<')
 
     self.assertEquals(7, resulting_function(78.9))
+
+  def test_parses_a_function_that_flips_the_sign_of_a_number(self):
+    resulting_function = self.subject.parse_operation('+/-')
+
+    self.assertEquals(1, resulting_function(-1))
+    self.assertEquals(-1, resulting_function(1))
