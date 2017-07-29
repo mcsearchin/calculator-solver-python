@@ -57,3 +57,18 @@ class ParseTest(TestCase):
 
     self.assertEquals(1, resulting_function(-1))
     self.assertEquals(-1, resulting_function(1))
+
+  def test_parses_a_function_that_appends_an_additional_digit(self):
+    resulting_function = self.subject.parse_operation('2')
+
+    self.assertEquals(12, resulting_function(1))
+
+  def test_parses_a_function_that_appends_additional_digits(self):
+    resulting_function = self.subject.parse_operation('2345')
+
+    self.assertEquals(12345, resulting_function(1))
+
+  def test_parsed_appending_function_adds_numbers_to_0(self):
+    resulting_function = self.subject.parse_operation('123')
+
+    self.assertEquals(123, resulting_function(0))
