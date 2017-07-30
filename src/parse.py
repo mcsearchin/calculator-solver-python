@@ -10,6 +10,9 @@ def parse_operation(operation_string):
     return lambda value: int(value) / 10
   if '+/-' == operation_string:
     return lambda value: value * -1
+  if 'reverse' == operation_string.lower():
+    return _generate_reverse_function()
+
 
   raise ValueError('Illegal operation : %s' % operation_string)
 
@@ -34,3 +37,6 @@ def _generate_appending_function(operation_string):
   places_to_shift = len(operation_string)
   number_to_append = int(operation_string)
   return lambda value: int(value) * (10**places_to_shift) + number_to_append
+
+def _generate_reverse_function():
+  return lambda value: int(str(int(value))[::-1])

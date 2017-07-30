@@ -72,3 +72,23 @@ class ParseTest(TestCase):
     resulting_function = self.subject.parse_operation('123')
 
     self.assertEquals(123, resulting_function(0))
+
+  def test_parses_a_function_that_reverses_the_digits(self):
+    resulting_function = self.subject.parse_operation('reverse')
+
+    self.assertEquals(321, resulting_function(123))
+
+  def test_parsed_reversing_function_drops_zeroes(self):
+    resulting_function = self.subject.parse_operation('reverse')
+
+    self.assertEquals(21, resulting_function(120))
+
+  def test_parses_a_function_that_reverses_the_digits_with_case_insensitivity(self):
+    resulting_function = self.subject.parse_operation('ReVeRsE')
+
+    self.assertEquals(321, resulting_function(123))
+
+  def test_parsed_reversing_function_ignores_digits_to_the_right_of_the_decimal_point(self):
+    resulting_function = self.subject.parse_operation('reverse')
+
+    self.assertEquals(321, resulting_function(123.45))
