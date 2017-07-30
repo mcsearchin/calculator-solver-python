@@ -88,7 +88,12 @@ class ParseTest(TestCase):
 
     self.assertEquals(321, resulting_function(123))
 
-  def test_parsed_reversing_function_ignores_digits_to_the_right_of_the_decimal_point(self):
+  def test_parsed_reversing_function_drops_digits_to_the_right_of_the_decimal_point(self):
     resulting_function = self.subject.parse_operation('reverse')
 
     self.assertEquals(321, resulting_function(123.45))
+
+  def test_parsed_reversing_function_does_not_affect_negative_signs(self):
+    resulting_function = self.subject.parse_operation('reverse')
+
+    self.assertEquals(-32, resulting_function(-23))
